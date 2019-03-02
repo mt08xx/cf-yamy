@@ -1,0 +1,84 @@
+#~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+# 窓使いの憂鬱 - dot.mayu
+# Copyright (C) 1999-2005, TAGA Nayuta <nayuta@users.sourceforge.net>
+#
+
+# まずキーボード定義を読み込む
+if ( USE104 )
+  include "104.mayu"		# 104 キーボード設定
+  if ( USE109on104 )
+    include "109on104.mayu"	# 104 キーボードを 109 キーボード風に
+  endif
+else
+  include "109.mayu"		# 109 キーボード設定
+  if ( USE104on109 )
+    include "104on109.mayu"	# 109 キーボードを 104 キーボード風に
+  endif
+endif
+
+if ( USEdefault )
+  include	"default.mayu"	# Emacs ライクなさまざまな設定
+endif
+
+keymap Global
+
+# このファイルをホームディレクトリにコピーしてから、
+# 以下に自分の好みのキーバインディングを設定するとよい。
+# このファイル自体を変更しないこと。
+#~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+
+# key *IC-C-Yen		= $ToggleIME		# IME ON/OFF をするキーの指定
+# key *IC-C-ReverseSolidus = $ToggleIME		# IME ON/OFF をするキーの指定
+
+if (HHKB)
+	def subst *Backspace = *ReverseSolidus
+	if (YAMY )
+		def subst *ReverseSolidus = *E0GraveAccent
+		def subst *E0GraveAccent = *Backspace
+	else
+		def subst *ReverseSolidus = *GraveAccent
+		def subst *GraveAccent = *Backspace
+	endif
+	key C-BackSlash = $ToggleIME
+	mod Windows -= LWindows
+	mod Alt += LWindows
+	key *LeftWindows = *LAlt
+else
+	if ( KBD109 ) and ( ! KBD104on109 )
+		key *半角/全角	= *Esc			# Esc と半角/全角の入れ替え
+		key *Esc		= *半角/全角		#	〃
+	endif
+
+	if ( KBD104 )
+		if (YAMY )
+			key C-BackSlash = $ToggleIME
+			key *E0GraveAccent	= *Esc				# Esc と~`の入れ替え
+			key *Esc		    = *GraveAccent	#	〃
+		else 
+			key *GraveAccent = *Esc				# Esc と~`の入れ替え
+			key *Esc		 = *GraveAccent		#	〃
+		endif
+	endif
+
+	# CAPS -> Ctrl
+	if ( ! KBD104on109 )
+		if ( KBD109 )
+			#   mod control += 英数				# 英数を Control に
+			#   key *英数		= *LControl		#	〃
+		else
+			if (YAMY )
+				mod control += E0CapsLock			# CapsLock を Control に
+				key *E0CapsLock	= *LControl		#	〃
+			else 
+				mod control += CapsLock			# CapsLock を Control に
+				key *CapsLock	= *LControl		#	〃
+			endif
+		endif
+
+		# 左WindowsキーをALTに
+##		mod Windows -= LWindows
+##		mod Alt += LWindows
+##		key *LeftWindows = *LAlt
+	endif
+
+endif
