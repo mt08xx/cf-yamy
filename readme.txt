@@ -1,4 +1,13 @@
-Yet Another Mado tsukai no Yuutsu(YAMY) ver.0.03
+Yet Another Mado tsukai no Yuutsu(YAMY) ver.0.03-alt-tab
+
+##################################################################
+# このプログラムは、yamy-0.03にyamy-0.03-alt-tab.patchを適用し
+# Alt+Tabのフックを無効化することで、Windows 8にてAlt+Tabによる
+# ウィンドウ切り替えができないという問題に対応したものです。
+#
+# ライセンスはオリジナルの物を踏襲します。
+# Copyright (C) 2013 Kazuki Tsujimoto, All rights reserved.
+##################################################################
 
 1. 概要
 
