@@ -1,34 +1,34 @@
 #~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
-# ‘‹g‚¢‚Ì—JŸT - dot.mayu
+# çª“ä½¿ã„ã®æ†‚é¬± - dot.mayu
 # Copyright (C) 1999-2005, TAGA Nayuta <nayuta@users.sourceforge.net>
 #
 
-# ‚Ü‚¸ƒL[ƒ{[ƒh’è‹`‚ğ“Ç‚İ‚Ş
+# ã¾ãšã‚­ãƒ¼ãƒœãƒ¼ãƒ‰å®šç¾©ã‚’èª­ã¿è¾¼ã‚€
 if ( USE104 )
-  include "104.mayu"		# 104 ƒL[ƒ{[ƒhİ’è
+  include "104.mayu"		# 104 ã‚­ãƒ¼ãƒœãƒ¼ãƒ‰è¨­å®š
   if ( USE109on104 )
-    include "109on104.mayu"	# 104 ƒL[ƒ{[ƒh‚ğ 109 ƒL[ƒ{[ƒh•—‚É
+    include "109on104.mayu"	# 104 ã‚­ãƒ¼ãƒœãƒ¼ãƒ‰ã‚’ 109 ã‚­ãƒ¼ãƒœãƒ¼ãƒ‰é¢¨ã«
   endif
 else
-  include "109.mayu"		# 109 ƒL[ƒ{[ƒhİ’è
+  include "109.mayu"		# 109 ã‚­ãƒ¼ãƒœãƒ¼ãƒ‰è¨­å®š
   if ( USE104on109 )
-    include "104on109.mayu"	# 109 ƒL[ƒ{[ƒh‚ğ 104 ƒL[ƒ{[ƒh•—‚É
+    include "104on109.mayu"	# 109 ã‚­ãƒ¼ãƒœãƒ¼ãƒ‰ã‚’ 104 ã‚­ãƒ¼ãƒœãƒ¼ãƒ‰é¢¨ã«
   endif
 endif
 
 if ( USEdefault )
-  include	"default.mayu"	# Emacs ƒ‰ƒCƒN‚È‚³‚Ü‚´‚Ü‚Èİ’è
+  include	"default.mayu"	# Emacs ãƒ©ã‚¤ã‚¯ãªã•ã¾ã–ã¾ãªè¨­å®š
 endif
 
 keymap Global
 
-# ‚±‚Ìƒtƒ@ƒCƒ‹‚ğƒz[ƒ€ƒfƒBƒŒƒNƒgƒŠ‚ÉƒRƒs[‚µ‚Ä‚©‚çA
-# ˆÈ‰º‚É©•ª‚ÌD‚İ‚ÌƒL[ƒoƒCƒ“ƒfƒBƒ“ƒO‚ğİ’è‚·‚é‚Æ‚æ‚¢B
-# ‚±‚Ìƒtƒ@ƒCƒ‹©‘Ì‚ğ•ÏX‚µ‚È‚¢‚±‚ÆB
+# ã“ã®ãƒ•ã‚¡ã‚¤ãƒ«ã‚’ãƒ›ãƒ¼ãƒ ãƒ‡ã‚£ãƒ¬ã‚¯ãƒˆãƒªã«ã‚³ãƒ”ãƒ¼ã—ã¦ã‹ã‚‰ã€
+# ä»¥ä¸‹ã«è‡ªåˆ†ã®å¥½ã¿ã®ã‚­ãƒ¼ãƒã‚¤ãƒ³ãƒ‡ã‚£ãƒ³ã‚°ã‚’è¨­å®šã™ã‚‹ã¨ã‚ˆã„ã€‚
+# ã“ã®ãƒ•ã‚¡ã‚¤ãƒ«è‡ªä½“ã‚’å¤‰æ›´ã—ãªã„ã“ã¨ã€‚
 #~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
 
-# key *IC-C-Yen		= $ToggleIME		# IME ON/OFF ‚ğ‚·‚éƒL[‚Ìw’è
-# key *IC-C-ReverseSolidus = $ToggleIME		# IME ON/OFF ‚ğ‚·‚éƒL[‚Ìw’è
+# key *IC-C-Yen		= $ToggleIME		# IME ON/OFF ã‚’ã™ã‚‹ã‚­ãƒ¼ã®æŒ‡å®š
+# key *IC-C-ReverseSolidus = $ToggleIME		# IME ON/OFF ã‚’ã™ã‚‹ã‚­ãƒ¼ã®æŒ‡å®š
 
 if (HHKB)
 	def subst *Backspace = *ReverseSolidus
@@ -45,37 +45,37 @@ if (HHKB)
 	key *LeftWindows = *LAlt
 else
 	if ( KBD109 ) and ( ! KBD104on109 )
-		key *”¼Šp/‘SŠp	= *Esc			# Esc ‚Æ”¼Šp/‘SŠp‚Ì“ü‚ê‘Ö‚¦
-		key *Esc		= *”¼Šp/‘SŠp		#	V
+		key *åŠè§’/å…¨è§’	= *Esc			# Esc ã¨åŠè§’/å…¨è§’ã®å…¥ã‚Œæ›¿ãˆ
+		key *Esc		= *åŠè§’/å…¨è§’		#	ã€ƒ
 	endif
 
 	if ( KBD104 )
 		if (YAMY )
 			key C-BackSlash = $ToggleIME
-			key *E0GraveAccent	= *Esc				# Esc ‚Æ~`‚Ì“ü‚ê‘Ö‚¦
-			key *Esc		    = *GraveAccent	#	V
+			key *E0GraveAccent	= *Esc				# Esc ã¨~`ã®å…¥ã‚Œæ›¿ãˆ
+			key *Esc		    = *GraveAccent	#	ã€ƒ
 		else 
-			key *GraveAccent = *Esc				# Esc ‚Æ~`‚Ì“ü‚ê‘Ö‚¦
-			key *Esc		 = *GraveAccent		#	V
+			key *GraveAccent = *Esc				# Esc ã¨~`ã®å…¥ã‚Œæ›¿ãˆ
+			key *Esc		 = *GraveAccent		#	ã€ƒ
 		endif
 	endif
 
 	# CAPS -> Ctrl
 	if ( ! KBD104on109 )
 		if ( KBD109 )
-			#   mod control += ‰p”				# ‰p”‚ğ Control ‚É
-			#   key *‰p”		= *LControl		#	V
+			#   mod control += è‹±æ•°				# è‹±æ•°ã‚’ Control ã«
+			#   key *è‹±æ•°		= *LControl		#	ã€ƒ
 		else
 			if (YAMY )
-				mod control += E0CapsLock			# CapsLock ‚ğ Control ‚É
-				key *E0CapsLock	= *LControl		#	V
+				mod control += E0CapsLock			# CapsLock ã‚’ Control ã«
+				key *E0CapsLock	= *LControl		#	ã€ƒ
 			else 
-				mod control += CapsLock			# CapsLock ‚ğ Control ‚É
-				key *CapsLock	= *LControl		#	V
+				mod control += CapsLock			# CapsLock ã‚’ Control ã«
+				key *CapsLock	= *LControl		#	ã€ƒ
 			endif
 		endif
 
-		# ¶WindowsƒL[‚ğALT‚É
+		# å·¦Windowsã‚­ãƒ¼ã‚’ALTã«
 ##		mod Windows -= LWindows
 ##		mod Alt += LWindows
 ##		key *LeftWindows = *LAlt
